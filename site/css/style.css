@@ -1,15 +1,15 @@
 body, html {
     padding: 0;
     margin: 0;
-    /* background-image: url(../images/home\ link.jpg); */
     background-color: #193C38;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* HEADER */
 
 header {
     width: 100vw;
-    height: 15vh;
+    height: 14vh;
     background: #404040;
     font-size: 1.3em;
 }
@@ -43,15 +43,20 @@ header {
 }
 
 .menuHeader a {
-    
     text-decoration: none;
     color: #C8C8C8;
-
 }
 .menuHeader span {
     vertical-align: middle;
 }
 
+.login, .cadastrar {
+    border: none;
+    background-color: #404040;
+    font-size: 1em;
+    color: #C8C8C8;
+    cursor: pointer;
+}
 /* BANNER */
 
 .imagemFundo {
@@ -60,18 +65,24 @@ header {
     background-repeat: no-repeat;
     background-position-x: -2px;
     background-position-y: -170px;
-    height: 85vh;
+    height: 86vh;
+   
 }
 
 .primeiroBloco {
     font-family: Arial, Helvetica, sans-serif;
-    /* background-color: rgba(255, 145, 0, 0.514); */
+    background-color: rgba(0, 0, 0, 0.62);
     position: absolute;
-    right: 12.3vw;
+    right: 10vw;
     width: 41vw;
-    padding-top: 15vh;
-    color: #404040;
-    font-weight: bold;
+    margin-top: 10vh;
+    color: #F4EFE5;
+    /* font-weight: bold; */
+    padding-left: 3vw;
+    padding-right: 2vw;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    border-radius: 20px;
 }
 
 .titleStyle {
@@ -81,6 +92,36 @@ header {
 
 article {
     font-size: 1.4em;
-    -webkit-text-stroke-width: 0.27px;
-    -webkit-text-stroke-color: #c8c8c8;
+    /* -webkit-text-stroke-width: 0.27px;
+    -webkit-text-stroke-color: #c8c8c8; */
+}
+
+.segundoBloco {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.62);
+    position: absolute;
+    left: 7vw;
+    top: 55vh;
+    width: 26vw;
+    color: #F4EFE5;
+    padding-left: 2.4vw;
+    padding-right: 1vw;
+    padding-top: 2.2vh;
+    padding-bottom: 1.8vh;
+    border-radius: 20px;
+}
+
+.terceiroBloco {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.62);
+    position: absolute;
+    left: 40vw;
+    top: 87vh;
+    width: 18vw;
+    color: #F4EFE5;
+    padding-left: 2vw;
+    padding-right: 1.2vw;
+    padding-top: 2vh;
+    padding-bottom: 1.5vh;
+    border-radius: 20px;
 }

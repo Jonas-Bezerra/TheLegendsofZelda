@@ -1,0 +1,53 @@
+
+.menuHeader span {
+    color: #C8C8C8;
+    margin-right: 1.5vw;
+}
+
+.imagemADM {
+    background-image: url(../images/lua4k.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -50px;
+    height: 86vh;
+   
+}
+
+.bemVindo{
+    text-align: center;
+    color: #C8C8C8;
+    font-size: 3em;
+}
+
+.editalPost {
+    background-color: rgba(244, 239, 229, 0.62);
+    width: max-content;
+    text-align: center;
+    margin-left: 4vw;
+    margin-top: 2vh;
+    padding: 3vh 2vw;
+    border-radius: 17px;
+}
+
+.tituloEdital{
+    font-size: 1.4em;
+    
+}
+
+textarea {
+    font-size: 1.15em;
+    background-color: #c4c4c4;
+    padding: 3vh 2vw;
+    border-radius: 15px;
+    margin-top: 4.5vh;
+}
+
+.btnPublicar{
+    background-color: #c4c4c4;
+    font-size: 1.12em;
+    border: none;
+    height: 6vh;
+    width: 9vw;
+    border-radius: 50px;
+    margin-top: 1.7vh;
+}
