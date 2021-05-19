@@ -9,8 +9,17 @@
     top: 0;
     padding-top: 15vh;
 }
+
+@keyframes animaCadastro{
+    0%{
+        transform: translate(0%,-400%);
+    }
+    100%{
+        transform: translate(0%,0%);
+    }
+}
 .modal {
-    background-color: blueviolet;
+    background-color: black;
     background-image: url(../images/fundo_modal.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,15 +27,87 @@
     background-position-y: -17px;
     border-radius: 50px;
     width: 60vw;
-    height: 70vh;
+    height: 77vh;
     margin: auto;
     padding-top: 4vh;
     position: relative;
-    /* justify-content: center;
-    align-items: center; */
+    animation-name: animaCadastro;
+    animation-duration: 1.5s;
 }   
+/* form */
+form {
+    margin-top: 14vh;
+    text-align: center;
+    align-items: center;
+}
 
-.formLogin {
+.input-field {
+
+
+    margin: 10px 0;
+    height: 40px;
+    display: contents;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+    position: relative;
+    background-color: blue;
+    }
+      .container-endereco {
+        width: 55%;
+        display: inline-flex;
+    }
+    .endereco-caixa {
+        width: 60%;
+        margin-right: 30px;
+    }
+    .endereco-caixa2{
+        width: 60%;
+    }
+    .lbl-cad {
+    
+        font-size: 17px;
+        color: rgba(255, 255, 255, 1);
+        float: left;
+    }
+    .input-field input {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 4px 0 10px 0;
+       
+      
+    }
+    #comboEstados{
+        width: 70px;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 4px 0 10px 0;
+    }
+    .imputEmail{
+        width: 100%;
+    }
+    .inputEndereco{
+        width: 158px !important;
+    }
+
+    .btnCadastrar {
+        border: none;
+        width: 12vw;
+        margin-top: 18px;
+        height: 6vh;
+        font-size: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+/* .formLogin {
     color: #F4EFE5;
 }
 #comboEstados {
@@ -37,9 +118,9 @@ select, input {
     height: 3.5vh;
     display: block;
     border-radius: 5px;
-    border: none;
+    border: none; */
     /* display: inline-block; */
-}
+/* }
 .conteudoDadosUsuario{
     top: 17vh;
     margin: 0 auto;
@@ -54,7 +135,7 @@ select, input {
     margin-left: 10vw;
 } */
 
-.maeInpLado {
+/* .maeInpLado {
     top: 17vh;
     position: relative;
     margin-top: 2vh;
@@ -66,7 +147,7 @@ select, input {
 /* .inpLado{
     position: ;
 } */
-.inpForm {
+/* .inpForm {
     width: 15vw;
 }
 
@@ -98,4 +179,4 @@ select, input {
     font-weight: bold;
     background-color: #1BB04C;
     color: #F4EFE5;
-}
+} */

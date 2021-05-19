@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="../icons/triforceIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/principal.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <img src="../icons/iconZelda.png" alt="">
+        </div>
+    
+        <div class="menuQuadrante">
+            <ul>
+                <li class="menuItem">
+                    <button class="btnMenu">Nome usuário
+                        <img src="../icons/user.png" alt="icone log-in">
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <nav class="navFixa">
+
+        <div class="container">
+            <div class="logoMini" id="miniLogo">
+                <img src="../icons/iconZelda.png" alt="">
+            </div>
+
+            <div class="navItensMae">
+                <ul>
+                    <li class="navItens">
+                        <a href="" onclick="home()">Home</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="">Mapas</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="">Fórum</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="">Personagens</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="">Linha do tempo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <section>
+        <h1 class="bemVindo">Bem vindo fã de Zelda</h1>
+
+    </section>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    dd <br>
+    <button>d</button>
+    dd <br>
+</body>
+
+</html>
+<script>
+    var scrollPosicao = 0;
+
+    // Função perfeita, minha primeira animação!
+    document.addEventListener('scroll', function() {
+        scrollPosicao = window.scrollY;
+
+        if (scrollPosicao > 65) {
+            miniLogo.style.display = `block`;
+        }else {
+            miniLogo.style.display = `none`;
+        }
+    });
+
+
+    // Função para scrollar instantâneamente para o inicio da página quando aperta o button "Home"
+    function home() {
+        window.scrollTo(0, 0);
+    }
+
+
+</script>
