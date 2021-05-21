@@ -12,10 +12,11 @@
 
 @keyframes animaCadastro{
     0%{
-        transform: translate(0%,-400%);
+     opacity: 0%;   
     }
+
     100%{
-        transform: translate(0%,0%);
+        opacity: 100%;   
     }
 }
 .modal {
@@ -32,7 +33,7 @@
     padding-top: 4vh;
     position: relative;
     animation-name: animaCadastro;
-    animation-duration: 1.5s;
+    animation-duration: 1.3s;
 }   
 /* form */
 form {

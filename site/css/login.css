@@ -24,8 +24,10 @@ form {
 }
 
 .inpLogin{
+    height: 3vh;
     width: 22vw;
     margin: auto;
+    text-align: center;
 }
 
 .separacaoCampos {
