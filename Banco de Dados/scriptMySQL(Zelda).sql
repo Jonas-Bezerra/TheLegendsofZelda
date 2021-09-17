@@ -5,7 +5,7 @@ use zelda;
 create table enqueteFeedback(
 idEnquete int primary key auto_increment,
 nota int,
-opiniao varchar(45)
+opiniao varchar(200)
 );
 
 create table usuario(
@@ -26,7 +26,7 @@ foreign key (fkEnquete) references enqueteFeedback (idEnquete)
 
 create table noticias(
 idNoticias int primary key auto_increment,
-dataNoticia datetime,
+dataNoticia datetime default current_timestamp,
 conteudo varchar(200),
 fkAdm int,
 foreign key (fkAdm) references usuario (idUsuario)
@@ -34,22 +34,34 @@ foreign key (fkAdm) references usuario (idUsuario)
 
 create table topico(
 idTopico int primary key auto_increment,
-titulo varchar(45),
-dataTopico datetime,
-descricaoTopico varchar(200)
-);
-
-create table comentario(
+titulo varchar(45) not null,
+dataTopico datetime default current_timestamp,
+descricaoTopico varchar(500) not null,
 fkUsuario int,
-foreign key (fkUsuario) references usuario(idUsuario),
-fkTopico int,
-foreign key (fkTopico) references topico(idTopico),
-dataPost datetime,
-counteudo varchar(150),
-primary key (fkUsuario, fkTopico)
+foreign key (fkUsuario) references usuario (idUsuario)
 );
+alter table topico modify column titulo varchar(45) not null;
 
-update usuario set adm = 'true' where idUsuario = 2;
+delete from topico where idTopico > 7;
+
+-- select para tornar um usuário em administrador
+update usuario set adm = 'true' where idUsuario > 7;
 
 select * from usuario;
+select * from noticias;
+select * from topico;
+select * from enqueteFeedback;
 
+desc noticias;
+
+select dataNoticia, conteudo from noticias as n order by dataNoticia desc;
+
+SELECT t.titulo, t.dataTopico, t.descricaoTopico
+	FROM topico AS t
+    ORDER BY t.idTopico DESC;
+
+select opiniao, truncate(avg(nota),1) as 'mediaDasNotas' from enqueteFeedback;
+
+select * from enqueteFeedback;
+
+select opiniao from enqueteFeedback order by idEnquete desc;
