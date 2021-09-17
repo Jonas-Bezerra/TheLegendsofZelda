@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="icons/triforceIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/validacoes.js"></script>
+    <style>
+        body {
+            background-color: #193C38;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Zelda</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="icons/iconZelda.png" alt="">
+        </div>
+        <div class="menu">
+            <ul>
+                <li class="menuHeader">
+                    <button class="login">
+                        <img src="icons/user.png" alt="icone log-in">
+                        <span>Entrar</span>
+                    </button>
+                </li>
+
+                <li class="menuHeader">
+                    <button class="cadastrar">
+                        <img src="icons/user.png" alt="icone cadastro">
+                        <span>Cadastrar</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="modalCadastro" class="container">
+
+        <div class="modal">
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar2()">
+                <div class="input-field">
+                    <div class="container-endereco">
+                        <div class="endereco-caixa">
+                            <label class="lbl-cad" for="">Nome Completo</label>
+                            <input onkeyup="validarCadastro()" id="inpNome" type="text" name="nome" required
+                                minlength="4">
+                        </div>
+                        <div class="endereco-caixa2">
+                            <label class="lbl-cad" for="">Apelido</label>
+                            <input onkeyup="validarCadastro()" id="inpApelido" type="text" name="apelido" required
+                                minlength="4">
+                        </div>
+                    </div>
+                    <div class="container-endereco">
+                        <div class="endereco-caixa">
+                            <label class="lbl-cad" for="">Data Nascimento</label>
+                            <input type="date" name="dataNasc" required>
+                        </div>
+                        <div class="endereco-caixa2">
+                            <label class="lbl-cad" for="">Logradouro</label>
+                            <input type="text" name="logradouro" required minlength="4">
+                        </div>
+                    </div>
+                    <div class="container-endereco">
+                        <div class="endereco-caixa">
+                            <label class="lbl-cad" for="">Bairro</label>
+                            <input type="text" class="inputEndereco" name="bairro" required minlength="4">
+                        </div>
+                        <div class="endereco-caixa">
+                            <label class="lbl-cad" for="">Cidade</label>
+                            <input type="text" class="inputEndereco" name="cidade" required minlength="4">
+                        </div>
+                        <div class="endereco-caixa2">
+                            <label class="lbl-cad" for="">UF</label>
+                            <select name="uf" id="comboEstados" required>
+                                <option value="">Selecionar</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="container-endereco">
+                        <div class="endereco-caixa2 imputEmail">
+                            <label class="lbl-cad" for="">Email</label>
+                            <input onkeyup="validarCadastro()" id="inpEmail" type="text" name="email" required
+                                minlength="4">
+                        </div>
+                    </div>
+                    <div class="container-endereco">
+                        <div class="endereco-caixa">
+                            <label class="lbl-cad" for="">Senha</label>
+                            <input onkeyup="validarCadastro()" id="inpSenha" type="password" name="senha" required
+                                minlength="8">
+                        </div>
+                        <div class="endereco-caixa2">
+                            <label class="lbl-cad" for="">Confirma Senha</label>
+                            <input onkeyup="validarCadastro()" id="inpSenha2" type="password">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button class="btnCadastrar" type="submit" id="btn_entrar2" value="Cadastrar">cadastrar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="modalLogin" class="container">
+        <div class="modal">
+            <form id="form_login" method="post" onsubmit="return entrar()">
+                <div class="filhoForm">
+                    <h1 class="tituloLogin">Login</h1>
+
+                    <div class="separacaoCampos">
+                        <div class="dadosLogin"> Email </div>
+                        <br>
+                        <input type="text" class="inpLogin" name="email">
+                    </div>
+                    <div class="separacaoCampos">
+                        <div class="dadosLogin"> Senha </div>
+                        <br>
+                        <input type="password" class="inpLogin" name="senha">
+                        <div id="validaLogin"></div>
+                    </div>
+                    <button class="btnLogin" id="btn_entrar">Entrar</button>
+                    <div id="div_erro" style="display: none;">Erro de login aqui</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="imagemFundo">
+        <section class="primeiroBloco">
+            <h1 class="titleStyle">DE FÃ PRA FÃ</h1>
+            <article>
+                Um espaço para fãs da prestigiada série de video-games Zelda,
+                nosso objetivo é que você aprenda mais sobre esse incrivel universo de
+                fantasia que tanto amamos!
+            </article>
+        </section>
+
+        <section class="segundoBloco">
+            <article>
+                Venha fazer parte da nossa comunidade e dividir experiências únicas e conhecimento conosco
+            </article>
+        </section>
+
+        <section class="terceiroBloco">
+            <article>
+                TOTALMENTE GRÁTIS
+            </article>
+        </section>
+
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    /*Modal de cadastro*/
+    function iniciaModal(modalId) {
+        const modal = document.getElementById(modalId);
+
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        if (modal) {
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if (e.target.id == modalId) {
+                    modal.style.display = "none";
+                    document.body.style.overflowY = "scroll";
+                }
+            })
+        }
+    }
+    // Criação / chamada da função iniciaModal 
+    const cadastrar = document.querySelector('.cadastrar');
+    cadastrar.addEventListener('click', () => iniciaModal('modalCadastro'));
+
+
+    /*Modal de login*/
+    function iniciaModal(modalId) {
+        const modal = document.getElementById(modalId);
+
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        if (modal) {
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if (e.target.id == modalId) {
+                    modal.style.display = "none";
+                    document.body.style.overflowY = "scroll";
+                }
+            })
+        }
+    }
+    // Criação / chamada da função iniciaModal 
+    const login = document.querySelector('.login');
+    login.addEventListener('click', () => iniciaModal('modalLogin'));
+
+
+
+
+    // API para login:
+    function entrar() {
+
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.email;
+                    sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
+                    sessionStorage.id_usuario_meuapp = json.idUsuario;
+
+                    sessionStorage.adm_usuario_meuapp = json.adm;
+
+                    sessionStorage.apelido_usuario_meuapp = json.apelido;
+
+                    let adms = json.adm;
+
+                    if (adms == 'true') {
+                        window.document.location.href = "adm.html"
+                        displayADM.style.display = `inline`;
+                    } else {
+                        window.document.location.href = "principal.html"
+                    }
+                });
+
+            } else {
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    // console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+        div_erro.style.display = `block`;
+    }
+
+
+
+    // API para cadastro:
+
+    function cadastrar2() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                window.location.href = 'index.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    // function finalizar_aguardar() {
+    //     btn_entrar.disabled = false;
+    //     img_aguarde.style.display = 'none';
+    //     div_erro.style.display = 'block';
+    // }
+</script>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="icons/triforceIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/principal.css">
+    <script type="text/javascript" src="funcoes.js"></script>
+    <script type="text/javascript" src="js/validacoes.js"></script>
+    <script defer type="text/javascript" src="js/animacoes.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body onload="obterPublicacoes()">
+    <header>
+
+        <div class="logo">
+            <img src="icons/iconZelda.png" alt="">
+        </div>
+
+        <div class="menuQuadrante">
+            <ul>
+                <li class="menuItem">
+                    <button class="btnMenu">
+                        <b id="b_usuario"></b>
+                    </button>
+                </li>
+                <li class="menuItem">
+                    <button onclick="logoff()" class="btnMenu">
+                        Sair <img src="icons/inside-logout-icon.png" alt="">
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <nav class="navFixa">
+
+        <div class="container">
+            <div class="logoMini" id="miniLogo">
+                <img src="icons/iconZelda.png" alt="">
+            </div>
+
+            <div class="navItensMae">
+                <ul>
+                    <li class="navItens">
+                        <a class="destaque" href="">Home</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="principal.html#sectionMapa">Mapas</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="topicos.html">Fórum</a>
+                    </li>
+
+                    <li class="navItens">
+                        <a href="principal.html#timeline">Linha do tempo</a>
+                    </li>
+
+                    <li id="displayADM" class="navItens" class="liADM">
+                        <a href="adm.html">ADM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="primeiraSection">
+        <h1 class="bemVindo">Bem vindo fã de Zelda</h1>
+
+        <div class="feedNoticias">
+            <div class="containerNoticias">
+                <span class="editalText">Edital:</span>
+                <div id="scrollFixoY" class="scrollFixo">
+                </div>
+            </div>
+        </div>
+
+        <div class="siteOficial">
+            <div class="containerOficial">
+                <a href="https://www.zelda.com/">Visite o site oficial da Nintendo</a>
+                <br>
+                <a href="https://www.zelda.com/"> <img src="images/site-oficial.jpg" alt=""> </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sectionMapas" id="sectionMapa">
+
+        <img id="showIcon1" class="iconLinkE" src="icons/zelda.png">
+        <div class="backgroundTitulo">
+            <div class="containerTitulo">
+                <div class="tituloMapa">Conheça alguns mapas da série</div>
+            </div>
+        </div>
+        <img id="showIcon2" class="iconLinkD" src="icons/zelda.png">
+
+        <div class="slideContainer">
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map-ocarina-of-time.jpg">
+                <div id="textDisplay1" class="textSlides">Mundo de "ocarina of time"</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map_a_link_to_the_past.bmp">
+                <div id="textDisplay2" class="textSlides">Mundo de "A Link to the past"</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map_reverso_a_link_to_the_past.bmp">
+                <div id="textDisplay3" class="textSlides">Mundo reverso de "A Link to the past"</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map-wind-walker.jpg">
+                <div id="textDisplay4" class="textSlides">Mundo de "Wind Walker"</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map-zelda.jpg">
+                <div id="textDisplay5" class="textSlides">Mundo do primeiro jogo da série</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map-majoras-mask.jpg">
+                <div id="textDisplay6" class="textSlides">Mundo de "Majoras mask"</div>
+            </div>
+
+            <div class="meuSlide" class="desaparecer">
+                <img class="imgSlide" src="images/map-breath-of-the-wild.jpg">
+                <div id="textDisplay7" class="textSlides">Mundo de "Breath of the wild"</div>
+            </div>
+
+            <div class="containerControls">
+                <a class="antes" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="prox" onclick="plusSlides(1)">&#10095;</a>
+                <!-- URL onde consegui os códigos html para os simbolos: "<" e ">" https://graphemica.com/%E2%9D%AF -->
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="linhaTempo">
+        <div class="containerTimeline">
+            <div class="imgLinhaTempo">
+                <img src="images/linha-do-tempo.jpg" alt="imagem da linha do tempo">
+            </div>
+            <aside class="asideLinhaTempo">
+               <div class="tituloTimeline"> <h3>Sobre a linha do tempo</h3> </div>
+                <div class="explicacaoTimeline">
+                    A Linha do Tempo (Timeline em Inglês) dita a ordem dos jogos canônicos na série Legend of Zelda. 
+                    Sua cronologia precisa de eventos tem sido muito debatido entre os fãs. 
+                    Em 21 de Dezembro de 2011, a Nintendo lançou o livro Hyrule Historia, que continha uma linha to 
+                    tempo oficial criada pelo atual diretor da série Zelda,
+                     <a href="https://pt.wikipedia.org/wiki/Eiji_Aonuma" class="eijiAonume"> Eiji Aonuma.</a>
+                </div>
+
+                <div class="explicacaoTimeline">
+                    Hyrule foi formado muitos séculos atrás através das obras das três Deusas Douradas: Din, a 
+                    Deusa do Poder, Nayru, a Deusa da Sabedoria, e Farore, a Deusa da Coragem. Antes dos espíritos
+                     e da vida existirem, essas três deusas desceram sobre o caos que era Hyrule.
+                </div>
+
+                <div class="explicacaoTimeline">
+                    Os descendentes dos povos que viviam em tempos antigos sob a proteção da deusa Hylia ficaram
+                     conhecidos como Hylianos. Eles nasceram com o sangue infundido com magia, dotando-os de poderes
+                      psíquicos e habilidade em feitiçaria. Acredita-se também que as orelhas pontudas dos Hylianos
+                       os permitem ouvir as mensagens dos deuses.
+                </div>
+
+                <div class="explicacaoTimeline">
+                    <b>Guerra Civil Hyruleana: </b>
+                    Por razões não especificadas, Hyrule entrou em um período de guerra feroz. Durante esta guerra,
+                     uma mulher Hyliana fugiu dos fogos da guerra e entrou na Floresta Kokiri, dando seu bebê
+                      recém-nascido, chamado de Link, para a Grande Árvore Deku para ser criado como um Kokiri.
+                       Finalmente a guerra terminou e o Rei de Hyrule unificou seu país.
+                </div>
+
+            </aside>
+        </div>
+    </section>
+
+    <footer>
+        <div class="containerFooter">
+            <div class="logoFooter">
+                <a href="principal.html"><img src="icons/iconZelda.png" alt=""></a>
+            </div>
+
+            <div class="divEnquete">
+                <span class="spanForm">Nos de a sua opinião</span>
+                <form id="formEnquete" method="post" onsubmit="return avaliar()">
+                    <input class="inpNota" id="inpNotas" name="nota" type="number" required
+                     placeholder="Nota de 0 a 10" minlength="1">
+                    <br>
+                    <textarea class="textOpiniao" id="inpOpiniao" name="opiniao" required cols="30" rows="5" minlength="5"
+                        placeholder="Justifique aqui sua nota"></textarea>
+                    <br>
+                    <button class="btnAvaliar" onclick="displayMsg()">Avaliar</button>
+
+                    <div id="divValidacaoNota" class="validacaoNota">Agradecemos sua colaboração!</div>
+                    <div id="errorAvaliar" class="validacaoNota2">Preencha adequadamente os campos</div>
+                </form>
+            </div>
+
+            <div class="listaRecomendados">
+                <ul class="listaFooter">
+                    <li class="TituloLista">
+                        Links recomendados:
+                    </li>
+                    <li class="listaURL">
+                        <a href="http://hyrulemap.blogspot.com/2010/05/legend-of-zelda-link-to-past-detonado.html">
+                            Detonado da série</a>
+                    </li>
+                    <li class="listaURL">
+                        <a href="https://downloads.khinsider.com/game-soundtracks/browse/L">Trilhas sonoras</a>
+                    </li>
+                    <li class="listaURL">
+                        <a href="https://www.nintendo.com/amiibo/">Amiibos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+    let usuario;
+
+    verificar_autenticacao();
+
+    function avaliar() {
+
+
+        var formulario = new URLSearchParams(new FormData(formEnquete));
+
+        fetch(`/enqueteFeedbacks/opinar`, {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+            console.log("Oi " + `${JSON.stringify(resposta)}`);
+            if (resposta.ok) {
+                inpNotas.value = ``;
+                inpOpiniao.value = ``;
+
+            } else {
+                console.log('Erro ao publicar!');
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+        });
+
+        return false;
+    }
+
+
+    // slides:
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // prox/antes botões
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("meuSlide");
+
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+
+    }
+
+    // RECUPERANDO NOTICIAS:
+
+    function atualizarFeed(noticias) {
+        var divMae = document.getElementById("scrollFixoY");
+        divMae.innerHTML = "";
+        for (let i = 0; i < noticias.length; i++) {
+            var publicacao = noticias[i];
+
+
+            var divPublicacao = document.createElement("div")
+            var divData = document.createElement("div")
+            var spanConteudo = document.createElement("span")
+
+
+            // divData.innerHTML = `${publicacao.dataNoticia}:`;
+            spanConteudo.innerHTML = `${publicacao.conteudo}`;
+
+
+            divPublicacao.className = "publicacaoNoticia"
+            // divData.className = "dataNoticia";
+            spanConteudo.className = "conteudoNoticia";
+
+
+            // divPublicacao.appendChild(divData);
+            divPublicacao.appendChild(spanConteudo);
+
+            divMae.appendChild(divPublicacao);
+        }
+    }
+
+    function obterPublicacoes() {
+
+        fetch("/noticias/noticiar")
+            .then(resposta => {
+                console.log(`entrou em noticias`)
+                console.log(resposta)
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        atualizarFeed(resposta);
+                        var DadosTopicos = `${JSON.stringify(resposta)}`;
+                        console.log("Dados da tabela topicos " + DadosTopicos);
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações: ${error.message}`);
+            });
+    }
+
+    function obterPublicacoesPorUsuario() {
+        fetch(`/topicos/${idUsuario}`)
+            .then(resposta => {
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        // alert(JSON.stringify(resposta))
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+            });
+    }
+
+    // 15 segundos para atualizar o edital de noticias
+    setInterval(() => {
+        obterPublicacoes()
+    }, 15000);
+</script>

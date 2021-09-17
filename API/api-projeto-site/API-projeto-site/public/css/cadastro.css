@@ -1,0 +1,183 @@
+/* MODAL LOGIN */
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.900);
+    position: fixed;
+    z-index: 2000;
+    display: none;
+    top: 0;
+    padding-top: 15vh;
+}
+
+@keyframes animaCadastro{
+    0%{
+     opacity: 0%;   
+    }
+
+    100%{
+        opacity: 100%;   
+    }
+}
+.modal {
+    background-color: black;
+    background-image: url(../images/fundo_modal.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -17px;
+    border-radius: 50px;
+    width: 60vw;
+    height: 77vh;
+    margin: auto;
+    padding-top: 4vh;
+    position: relative;
+    animation-name: animaCadastro;
+    animation-duration: 1.3s;
+}   
+/* form */
+form {
+    margin-top: 14vh;
+    text-align: center;
+    align-items: center;
+}
+
+.input-field {
+
+
+    margin: 10px 0;
+    height: 40px;
+    display: contents;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+    position: relative;
+    background-color: blue;
+    }
+      .container-endereco {
+        width: 55%;
+        display: inline-flex;
+    }
+    .endereco-caixa {
+        width: 60%;
+        margin-right: 30px;
+    }
+    .endereco-caixa2{
+        width: 60%;
+    }
+    .lbl-cad {
+    
+        font-size: 17px;
+        color: rgba(255, 255, 255, 1);
+        float: left;
+    }
+    .input-field input {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 4px 0 10px 0;
+       
+      
+    }
+    #comboEstados{
+        width: 70px;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 4px 0 10px 0;
+    }
+    .imputEmail{
+        width: 100%;
+    }
+    .inputEndereco{
+        width: 158px !important;
+    }
+
+    .btnCadastrar {
+        border: none;
+        width: 12vw;
+        margin-top: 18px;
+        height: 6vh;
+        font-size: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+/* .formLogin {
+    color: #F4EFE5;
+}
+#comboEstados {
+    width: 10vw;
+    height: 3.7vh;
+}
+select, input {
+    height: 3.5vh;
+    display: block;
+    border-radius: 5px;
+    border: none; */
+    /* display: inline-block; */
+/* }
+.conteudoDadosUsuario{
+    top: 17vh;
+    margin: 0 auto;
+    position: relative;
+    width: 469px;
+}
+.inpLadoEsquerdo{
+    float: left;
+    margin-right: 3vw;
+}
+/* .inpLadoDireito{
+    margin-left: 10vw;
+} */
+
+/* .maeInpLado {
+    top: 17vh;
+    position: relative;
+    margin-top: 2vh;
+    margin: 0 auto;
+    width: 468px;
+    
+}
+
+/* .inpLado{
+    position: ;
+} */
+/* .inpForm {
+    width: 15vw;
+}
+
+#classEmail {
+    float: left;
+    margin-right: 2vw;
+}
+.inpEmail {
+    width: 21.2vw;
+    
+}
+
+.inpSenha {
+    width: 25vw;
+}
+
+.btnCadastrar {
+    position: absolute;
+    top: 51.4vh;
+    left: 39.4vw;
+    width: 7vw;
+    height: 13.5vh;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.btnCadastrar:hover {
+    font-weight: bold;
+    background-color: #1BB04C;
+    color: #F4EFE5;
+} */

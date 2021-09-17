@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="icons/triforceIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/adm.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="funcoes.js"></script>
+    <script type="text/javascript" src="js/validacoes.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+</head>
+
+<body onload="obterNotas()">
+    <header>
+        <div class="logo">
+            <img src="icons/iconZelda.png" alt="">
+        </div>
+
+        <div class="navFixa">
+            <div class="container">
+                <div class="navItensMae">
+                    <ul>
+                        <li class="navItens">
+                            <a href="principal.html">Home</a>
+                        </li>
+
+                        <li class="navItens">
+                            <a href="principal.html#sectionMapa">Mapas</a>
+                        </li>
+
+                        <li class="navItens">
+                            <a href="topicos.html">Fórum</a>
+                        </li>
+
+                        <li class="navItens">
+                            <a class="destaque" href="adm.html">ADM</a>
+                        </li>
+
+                        <li class="navItens">
+                            <a href="principal.html#timeline">Linha do tempo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li class="menuHeader">
+                    <b id="b_usuario"></b>
+                    <img onclick="logoff()" src="icons/inside-logout-icon.png" alt="icone logoff">
+                    <span onclick="logoff()" class="saindo">Sair</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="imagemADM">
+        <div class="bemVindo">
+            Bem vindo ADM!
+        </div>
+
+        <form id="formNoticia" method="post" onsubmit="return noticiar()">
+            <div class="editalPost">
+                <span class="tituloEdital">Faça um post no edital aqui!</span>
+                <br>
+                <textarea class="textareaADM" id="textADM" name="conteudo" cols="30" rows="10" minlength="10" required
+                    placeholder="Voce pode ajustar o tamanho do campo de texto no canto inferior direito"></textarea>
+                <br>
+                <button onclick="validarNoticia()" class="btnPublicar">Publicar</button>
+            </div>
+        </form>
+        <div class="mediaEnquete">
+            <div class="containerInformacoes">
+                <span class="informacoes">Informações sobre os usuários</span>
+            </div>
+
+            <span id="mediaNotas" class="mediaNotas">A avaliação média dos usuários é: </span>
+
+            <div class="spanOpiniao">Opiniões:</div>
+            <div class="scrollFixoOpinioes">
+                <div id="opinioes" class="styleOpinioes"></div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    verificar_autenticacao();
+
+    function noticiar() {
+        console.log("Deu Bom HAHA")
+
+        var formulario = new URLSearchParams(new FormData(formNoticia));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+
+        console.log("Aqui esta " + `${JSON.stringify(formulario)}`);
+        fetch(`/noticias/noticiar/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+            console.log("Oi " + `${JSON.stringify(resposta)}`);
+            if (resposta.ok) {
+
+                textADM.value = ``;
+            } else {
+                console.log('Erro ao publicar!');
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function obterNotas() {
+
+        fetch("/enqueteFeedbacks/opinar")
+            .then(resposta => {
+                console.log(`entrou em enqueteFeedbacks`)
+                console.log(resposta)
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        atualizarFeed(resposta);
+                        var DadosTopicos = `${JSON.stringify(resposta)}`;
+                        console.log("Dados da tabela topicos " + DadosTopicos);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações: ${error.message}`);
+            });
+    }
+
+    function obterOpinioes() {
+
+        fetch("/enqueteFeedbacks/avaliar")
+            .then(resposta => {
+                console.log(`entrou em enqueteFeedbacks`)
+                console.log(resposta)
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        atualizarFeedOpiniao(resposta)
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações: ${error.message}`);
+            });
+    }
+
+    function atualizarFeed(resposta) {
+
+        for (let i = 0; i < resposta.length; i++) {
+            var publicacao = resposta[i];
+
+            var spanMedia = document.createElement("span")
+
+            spanMedia.innerHTML = `${publicacao.mediaDasNotas}`;
+
+            spanMedia.className = "notaMedia";
+
+            mediaNotas.appendChild(spanMedia);
+
+            obterOpinioes(resposta)
+        }
+    }
+
+    function atualizarFeedOpiniao(resposta) {
+        opinioes.innerHTML = "";
+        for (let i = 0; i < resposta.length; i++) {
+            var publicacao = resposta[i];
+
+            var divOpiniao = document.createElement("div")
+
+            divOpiniao.innerHTML = `${publicacao.opiniao}`;
+
+            divOpiniao.className = "opiniaoNova";
+
+            opinioes.appendChild(divOpiniao);
+        }
+    }
+
+
+    // setInterval(() => {
+    //     obterOpinioes()
+    //     obterNotas()
+    // }, 5000);
+</script>

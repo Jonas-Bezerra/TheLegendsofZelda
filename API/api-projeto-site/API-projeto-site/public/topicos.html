@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="icons/triforceIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="css/adm.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/trilhasSonaras.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <script type="text/javascript" src="js/validacoes.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fórum</title>
+</head>
+
+<body onload="obterPublicacoes()">
+    <header>
+        <div class="logo">
+            <img src="icons/iconZelda.png" alt="">
+        </div>  
+
+        <div class="navFixa">
+            <div class="container">
+                <div class="navItensMae">
+                    <ul>
+                        <li class="navItens">
+                            <a href="principal.html">Home</a>
+                        </li>
+    
+                        <li class="navItens">
+                            <a href="principal.html#sectionMapa">Mapas</a>
+                        </li>
+    
+                        <li class="navItens">
+                            <a class="destaque" href="">Fórum</a>
+                        </li>
+    
+                        <!-- <li class="navItens">
+                            <a href="adm.html">ADM</a>
+                        </li> -->
+    
+                        <li class="navItens">
+                            <a href="principal.html#timeline">Linha do tempo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="sairStyle">
+            <ul>
+                <li class="menuHeader">
+                    <b id="b_usuario"></b>
+                    <img onclick="logoff()" src="icons/inside-logout-icon.png" alt="icone logoff">
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="containerGeral">
+
+        <section class="forum">
+            <div class="containerForum">
+                <div class="welcome">
+                    <h1>Bem vindo ao fórum!</h1>
+                </div>
+
+                <audio id="audioAleatorio" src=""></audio>
+
+                <div class="post">
+                    <div class="containerPost">
+                        <div class="topicos">
+                            <div class="containerTopico">
+                                <h1>Publicações:</h1>
+
+                                <div class="feed">
+                                    <div id="feed_container" class="container">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="forumDireita">
+
+            <div class="containerAside">
+                <form id="formTopico" method="post" onsubmit="return comentar()">
+                    <div class="formularioTopico">
+                        <div class="containerTopico">
+                            <input type="text" id="inpTitulo" placeholder="Escreva um título" name="titulo" required
+                             class="inpTituloTopico" minlength="3">
+                            <br>
+                            <textarea name="descricaoTopico" class="textareaTopicoForm" cols="30" rows="10" minlength="15"
+                                maxlength="500" id="inpDescricaoTopico" placeholder="Escreva seu tópico" required></textarea>
+                            <br>
+                            <button id="btn_publicar" class="btn-green">Publicar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="trilhaSonora">
+                    <div class="containerOcarina">
+                        <div class="trocarMusica" id="msgPrimaria">
+
+                            Clique na ocarina para tocar uma trilha sonora!
+                        </div>
+
+                        <div class="trocarMusica" id="msgDisplay">
+                            Clique na ocarina para pausar a trilha sonora!
+                        </div>
+                        <button class="botaoOcarina" onclick="playOuPause()">
+                            <img class="ocarinaDaTrilha" src="icons/ocarinaIcon.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+
+</html>
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    function comentar() {
+        console.log("Deu Bom HAHA")
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(formTopico));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        // var idUsuario = sessionStorage.idUsuario = json.idUsuario;
+        // var nomeUsuario = sessionStorage.id_usuario_meuapp;
+        console.log("Aqui esta " + `${JSON.stringify(formulario)}`);
+        fetch(`/topicos/recuperar/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+            console.log("Oi " + `${JSON.stringify(resposta)}`);
+            if (resposta.ok) {
+                inpTitulo.value = ``;
+                inpDescricaoTopico.value = ``;
+
+                obterPublicacoes();
+
+                // finalizarAguardar();
+            } else {
+                console.log('Erro ao publicar!');
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+
+    function atualizarFeed(topicos) {
+        var feed = document.getElementById("feed_container");
+        feed.innerHTML = "";
+        for (let i = 0; i < topicos.length; i++) {
+            var publicacao = topicos[i];
+
+
+            var divPublicacao = document.createElement("div")
+            var divNome = document.createElement("div")
+            var spanDescricao = document.createElement("span")
+            var divTitulo = document.createElement("div")
+
+            divNome.innerHTML = `${publicacao.apelido}:`;
+            divTitulo.innerHTML = `Titulo: ${publicacao.titulo}`;
+            spanDescricao.innerHTML = `${publicacao.descricaoTopico}`;
+
+
+            divPublicacao.className = "publicacao"
+            divNome.className = "nome";
+            divTitulo.className = "titulo";
+            spanDescricao.className = "descricao";
+
+            divPublicacao.appendChild(divTitulo);
+            divPublicacao.appendChild(divNome);
+            divPublicacao.appendChild(spanDescricao);
+
+            feed.appendChild(divPublicacao);
+        }
+    }
+
+    function obterPublicacoes() {
+
+        fetch("/topicos/recuperar")
+            .then(resposta => {
+                console.log(`entrou em obterPublicacoes`)
+                console.log(resposta)
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos Man: ${JSON.stringify(resposta)}`);
+
+                        atualizarFeed(resposta);
+                        var DadosTopicos = `${JSON.stringify(resposta)}`;
+                        console.log("Dados da tabela topicos " + DadosTopicos);
+
+                        // finalizarAguardar();
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações: ${error.message}`);
+            });
+    }
+
+    function obterPublicacoesPorUsuario() {
+        fetch(`/topicos/${idUsuario}`)
+            .then(resposta => {
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        // alert(JSON.stringify(resposta))
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+            });
+    }   
+
+    // function finalizarAguardar(resposta) {
+    //     btn_publicar.disabled = false;
+    //     img_aguarde.style.visibility = 'hidden';
+    //     if (resposta) {
+    //         div_erro.style.visibility = 'visible';
+    //         div_erro.innerHTML = resposta;
+    //     }
+    // }
+
+    // verificar_autenticacao();
+
+
+    // 5 segundos para atualizar o feed de tópicos
+    setInterval(() => {
+        obterPublicacoes()
+    }, 5000);
+</script>

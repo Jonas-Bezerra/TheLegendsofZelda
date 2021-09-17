@@ -1,0 +1,336 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/vila-Breath-of-the-Wild.png);
+    background-color: rgb(61, 60, 60);
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position-x: 0vw;
+    background-position-y: 0px;
+}
+
+.containerGeral {
+    width: 89%;
+    margin: auto
+}
+
+/* NAV */
+
+.navFixa {
+    margin-left: 15vw;
+    width: 60vw;
+    background-color: #404040;
+}
+
+.container {
+    width: 92%;
+    margin: auto;
+}
+
+ul {
+    margin: 0;
+}
+
+.navItensMae {
+    text-align: center;
+}
+
+.navItens {
+    list-style: none;
+    display: inline-block;
+    padding-right: 1.7vw;
+    padding-top: 4.6vh;
+}
+
+.navItens a {
+    text-decoration: none;
+    color: #C8C8C8;
+}
+
+.navItens a:hover {
+    text-decoration: none;
+    color: #1BB04C;
+}
+
+.sairStyle {
+    right: 2vw;
+    top: 3.3vh;
+    float: right;
+    margin-right: 2vw;
+    position: absolute;
+}
+
+.sairStyle img {
+    height: 1.2rem;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#b_usuario {
+    color: #C8C8C8;
+}
+
+.menuHeader img {
+    cursor: pointer;
+}
+
+.destaque {
+    color: #1BB04C !important;
+}
+
+/* SECTION */
+
+.forum {
+    height: 77vh;
+    width: 73.5%;
+    margin-top: 7vh;
+    background-color: #404040;
+    border-radius: 25px;
+    float: left;
+}
+
+.containerForum {
+    padding-top: 11vh;
+    width: 90%;
+    margin: auto;
+}
+
+.welcome {
+    font-size: 2.51em;
+    color: #F4EFE5;
+    text-align: center;
+}
+
+.welcome h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.post {
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 45vh;
+    margin-top: 6vh;
+}
+
+.post::-webkit-scrollbar {
+    width: 3px;
+}
+
+.post::-webkit-scrollbar-track {
+    background: #404040;
+}
+
+.post::-webkit-scrollbar-thumb {
+    background-color: #C8C8C8;
+    border-radius: 7px;
+    border: 2px solid 404040;
+}
+
+.containerPost {
+    width: 90%;
+    margin: auto;
+}
+
+.topicoss {
+    margin-top: 5vh;
+    background-color: #F4EFE5;
+    border-radius: 25px;
+    padding-bottom: 1vh;
+}
+
+.containerTopico {
+    width: 90%;
+    margin: auto;
+}
+
+.containerTopico h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em;
+    color: #F4EFE5;
+}
+
+.responder {
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.responder:hover {
+    font-size: 0.8em;
+    cursor: pointer;
+    color: #1BB04C;
+}
+
+.comentarios {
+    background-color: #C8C8C8;
+    padding: 5px 10px 3px 10px;
+    margin-bottom: 2px;
+}
+
+/* aside */
+
+.forumDireita {
+    float: left;
+    margin-top: 7vh;
+}
+
+.containerAside {
+    width: 90%;
+    margin: auto;
+}
+
+.formularioTopico {
+    background-color: #404040;
+    height: 50vh;
+    width: 23vw;
+    border-radius: 25px;
+}
+
+.containerTopicoForm {
+    margin: auto;
+    width: 90%;
+}
+
+.inpTituloTopico {
+    background-color: #c4c4c4;
+    height: 4vh;
+    width: 92.6%;
+    border: none;
+    margin-top: 3vh;
+    border-radius: 10px;
+    padding-left: 1.5vw;
+}
+
+.textareaTopicoForm:invalid {
+    border: 2px dashed red;
+}
+
+.textareaTopicoForm:invalid:focus {
+    background-image: linear-gradient(rgb(240, 166, 178), rgb(230, 138, 138));
+}
+
+.textareaTopicoForm {
+    font-size: 1.15em;
+    background-color: #c4c4c4;
+    padding: 1.5vh 1vw;
+    border-radius: 15px;
+    margin-top: 3vh;
+}
+.inpTituloTopico:invalid {
+    border: 2px dashed red;
+}
+
+.inpTituloTopico:invalid:focus {
+    background-image: linear-gradient(rgb(240, 166, 178), rgb(230, 138, 138));
+}
+
+.textareaTopicoForm::-webkit-scrollbar {
+    width: 4px;
+}
+
+.textareaTopicoForm::-webkit-scrollbar-track {
+    background: #F4EFE5;
+}
+
+.textareaTopicoForm::-webkit-scrollbar-thumb {
+    background-color: #404040;
+    border-radius: 7px;
+    border: 2px solid #404040;
+}
+
+.btn-green {
+    background-color: #c4c4c4;
+    border: none;
+    margin-left: 16vh;
+    height: 4vh;
+    width: 5vw;
+    border-radius: 10px;
+    margin-top: 1.5vh;
+}
+
+.btn-green:hover {
+    background-color: #1BB04C;
+    color: #F4EFE5;
+    cursor: pointer;
+}
+
+.trilhaSonora {
+    background-color: #404040;
+    width: 23vw;
+    border-radius: 25px;
+    height: 25vh;
+    margin-top: 2vh;
+}
+
+.containerOcarina {
+    width: 90%;
+    margin: auto;
+}
+
+.trocarMusica {
+    width: 20vw;
+    color: #F4EFE5;
+    padding-top: 2vh;
+}
+
+#msgDisplay {
+    display: none;
+}
+
+.botaoOcarina {
+    background: none;
+    border: none;
+}
+
+.ocarinaDaTrilha {
+    height: 12vh;
+    margin-left: 7vw;
+    margin-top: 1.8vh;
+    cursor: pointer;
+}
+
+.ocarinaDaTrilha:hover {
+    cursor: help;
+}
+
+/* DIVS CRIADAS PELO JS */
+
+.publicacao {
+    background-color: #c4c4c4;
+    margin-top: 3px;
+    padding: 0.5vh 2vh;
+    border-radius: 11px;
+}
+
+.titulo {
+    margin-top: 1.2vh;
+    margin-bottom: 0.8vh;
+    font-size: 1.1em;
+}
+
+.nome {
+    color: #C8C8C8;
+    background-color: #404040c2;
+    box-shadow: 0px 0px 11px #404040;
+    width: max-content;
+    border-radius: 3px;
+    margin-right: 0.6vw;
+    float: left;
+    padding-left: 0.3vw;
+    padding-right: 0.2vw;
+}
+
+.nome:hover {
+    color: #C8C8C8;
+    background-color: #404040c2;
+    box-shadow: 0px 0px 11px #404040;
+}
+
+/* .Ddescricao {
+
+} */
